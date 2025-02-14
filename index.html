@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PotPlayer-like Streaming Player</title>
+    <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            background: #333;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .player-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .player-wrapper video-js {
+            width: 100%;
+            height: 480px; /* Ajuste a altura do vídeo */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+        </header>
+        <main>
+            <div class="player-wrapper">
+                <video-js id="player" class="vjs-default-skin vjs-big-play-centered" controls preload="auto" width="640" height="480" data-setup='{}'>
+                    <source src="https://cdn.jmvstream.com/w/LVW-15748/LVW15748_Yed7yzLuRC/playlist.m3u8
+
+
+" type="application/x-mpegURL">
+                </video-js>
+            </div>
+        </main>
+    </div>
+    <script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-hls@5.14.1/dist/videojs-contrib-hls.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const player = videojs('player');
+            player.ready(() => {
+                player.play();
+            });
+        });
+    </script>
+</body>
+</html>
